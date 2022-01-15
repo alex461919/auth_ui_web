@@ -1,13 +1,13 @@
 # auth_ui_web
 
-Простая обертка пакета [firebaseui-web](https://github.com/firebase/firebaseui-web) для dart с пакетами dart:html и dart:js. А если проще, обычный mapper dart <--> JS + немного UI.
+A simple package wrapper [firebaseui-web](https://github.com/firebase/firebaseui-web) for dart with dart:html and dart:js packages. And to put it simply, the usual mapper dart <--> JS + a little UI.
 
-Flutter не требуется!
+Flutter is not required!
 
-Протестировано на провайдерах google и email. Остальный не пробовал, но должны работать.
+Tested on google and email providers. Haven't tried the rest but should work.
 
-Технология tenent работать не будет. Ничего сложного нарисовать конвертер, но мне оно без надобности, да и проверять не на чем.
+The tenent technology will not work. It’s nothing difficult to draw a converter, but I don’t need it, and there’s nothing to check on.
 
 ## Usage
 
-Example в наличие имеется. **Config есть объект JS, поэтому все callback`s, которые в нем присутствуют, обязательно должны быть обернуты allowInterop.**
+Example available. **Config is a JS object, so all callback`s that are present in it must be wrapped with allowInterop.**
