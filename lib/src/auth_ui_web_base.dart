@@ -9,17 +9,13 @@ import 'signout_dialog.dart';
 
 Future<void> startAuthUI(Config config, [App? app]) async {
   //
-  final _auth = app == null ? auth() : auth(app);
-  final overlay = FirebaseAuthWrapper();
-  late final AuthUI authUi;
-
-  try {
-    authUi = AuthUI.getInstance(_auth.app.name) ?? AuthUI(_auth.jsObject);
-  } on NoSuchMethodError {
+  if (!isFirebaseuiDefined()) {
     return Future.error(
         'AuthUI is undefined. You need to include the following script and CSS file in your page\n<script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>\n<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />');
   }
-
+  final _auth = app == null ? auth() : auth(app);
+  final overlay = FirebaseAuthWrapper();
+  final authUi = AuthUI.getInstance(_auth.app.name) ?? AuthUI(_auth.jsObject);
   final completer = Completer()
     // ignore: unawaited_futures
     ..future.whenComplete(() {

@@ -50,6 +50,13 @@ class Promise<T> {
       Promise<dynamic> arg6]);
 }
 
+@JS('window')
+abstract class _Window {
+  external static dynamic get firebaseui;
+}
+
+bool isFirebaseuiDefined() => _Window.firebaseui != null;
+
 @JS('Object')
 abstract class _Object {
   external static T Function<T>(T arg0, [dynamic arg1, dynamic arg2, dynamic arg3, dynamic arg4, dynamic arg5]) assign;
